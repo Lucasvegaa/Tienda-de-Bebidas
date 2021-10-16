@@ -1,0 +1,295 @@
+*{
+     padding: 0px;
+     margin: 0px;
+}
+
+body{
+    background-color: grey;
+}
+/* -----Header--- */
+.header{
+    /* background-color: black; */
+    background-image: linear-gradient(to right, black,rgb(173, 172, 172));
+}
+#logo {
+    text-decoration: none;
+    color: crimson;
+}
+.header__contenedorLogo__titulo{
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    margin-left: 5px;
+    color: crimson;
+    padding: 0px;
+    text-decoration: none;
+}
+.header__contenedorLogo__subtitulo{
+    color: blanchedalmond;
+    text-transform:capitalize;
+    align-content: center;
+    font-family: 'Teko', sans-serif;
+    font-size: 2rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+.header__nav__ul__li__link{
+    text-decoration: none;
+    color: blanchedalmond;
+    
+}
+.header__nav__ul__li{
+    color: blanchedalmond;
+    list-style: none;
+    display: inline-block;
+    padding: 0.3rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    margin-right: 2rem;
+}
+
+.header__nav__ul{
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color:rgb(105, 103, 103);
+    margin-left: 1rem;
+}
+
+.header__nav__ul__li:hover{
+    background-color: rgb(128, 128, 128);
+}
+.header__nav{
+    background-color:rgb(105, 103, 103);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__nav__buscador{
+    margin-right: 2rem;
+}
+
+/*--------main----------*/
+.main{
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    background-color: grey;
+}
+
+.main__tituloPrincipal{
+    font-size: 6rem;
+    color: crimson;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Teko', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold
+}
+
+.main__contenedor, .main__contenedor2 {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+}
+.main__contenedor--quienesSomos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+}
+.main--quienesSomos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main__contenedor--locales{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.main__contenedor__tarjeta{
+    background-color: white;
+    padding: 2rem;
+    border: 1px solid #000;
+    margin: 1rem;  
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 1rem;
+    transition: all 1000ms ;
+}
+.main__contenedor__tarjeta:hover{
+    transform: scale(1.2);
+}
+
+.main__contenedor__tarjeta__tituloTarjeta {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.main__contenedor__tarjeta__article{
+    text-align: justify;
+    margin-top: 1rem;
+}
+
+.main__contenedor2{
+    background-color: white;
+    border: 3px solid #000;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 2rem;
+}
+.main__contenedor2__img{
+    margin: 3rem;
+}
+
+.main__contenedor2__aside{
+    
+    margin: 5rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* --------Grid Seccion Productos--------- */
+.gridContenedor{
+    display: grid;
+    grid-template-areas: "carrusel carrusel"
+                        "origen principal"
+                        "servicio principal"
+                        "otro principal"    ;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 15vh 30vh 30vh 30vh;
+    font-family: 'Inter', sans-serif;
+}
+.gridContenedor__gridFiltroOrigen{
+    grid-area: origen;
+}
+
+.gridContenedor__gridFiltroServicio{
+    grid-area: servicio;
+}
+
+.gridContenedor__gridFiltroOtro{
+    grid-area: otro;
+}
+
+.gridContenedor__gridPrincipal{
+    grid-area: principal;
+    display: flex;
+    flex-wrap: wrap;
+    background-color:white ;
+    border: 2px solid;
+}
+
+.gridContenedor__gridPrincipal__producto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    box-shadow:  -3rem 3rem 3rem rgba(0, 0, 0, 0.3);
+}
+
+.gridContenedor__gridPrincipal__producto:hover{
+    background-color: tomato;
+}
+
+.gridContenedor__gridPrincipal__producto_imagenProducto{
+    width: 10rem; 
+    height: 10rem;
+}
+.gridContenedor__gridCarrusel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    grid-area: carrusel;
+    border: 1px solid;
+    background-color: white;
+    
+}
+.gridContenedor__gridCarrusel__imagen{
+    width: 8rem; height: 8rem;
+}
+
+.gridContenedor__gridFiltroOtro__lista, .gridContenedor__gridFiltroOrigen__lista, .gridContenedor__gridFiltroServicio__lista {
+    list-style: none;
+    background-color: #bbbbbb;
+    padding: 0rem 5rem 0rem 5rem;
+}
+.gridContenedor__gridFiltroOtro, .gridContenedor__gridFiltroOrigen, .gridContenedor__gridFiltroServicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: x-large;
+    background-color: darkgray;
+    border: 2px solid;
+}
+.gridContenedor__gridFiltroOtro__titulo, .gridContenedor__gridFiltroOrigen__titulo, .gridContenedor__gridFiltroServicio__titulo {
+    background-color: darkgray;
+    }
+
+
+/* ----------footer----------- */
+
+.footer{
+    background-color: black;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+}
+.footer__contenedor{
+    display: flex;
+}
+.footer__contenedor2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer__contenedor2__redes__span__link{
+    color: blanchedalmond;
+    margin-right: 1rem;
+}
+
+.footer__contenedor__ul{
+    color: blanchedalmond;
+    margin: 1rem;
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+.footer__contenedor2__redes{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.footer__contenedor2__span{
+    color:blanchedalmond;
+}
+.footer__contenedor__logo{
+    color: blanchedalmond;
+    margin-top: 1rem;
+}
+#lupaa{
+    color: blanchedalmond;
+}
+
+/* ----Estilo sin categoria / por modificar---- */
+
+main{
+    background-color: darkgray;
+}
+form{
+    color: black;
+    background-color: rgb(151, 151, 151);
+    padding-left: 5rem;
+    padding-right: 5rem;
+    border: 3px solid #000;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
