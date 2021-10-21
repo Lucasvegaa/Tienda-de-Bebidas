@@ -118,10 +118,11 @@ body{
     justify-content: flex-end;
     align-items: center;
     border-radius: 1rem;
-    transition: all 1000ms ;
+    transition: all 500ms ;
 }
 .main__contenedor__tarjeta:hover{
     transform: scale(1.2);
+    margin: 5rem; 
 }
 
 .main__contenedor__tarjeta__tituloTarjeta {
