@@ -1,17 +1,21 @@
 @import "./scss/reset";
 @import "./scss/variables";
+@import "./scss/header";
+@import "./scss/footer";
 
 
 
 #logo {
-    text-decoration: none;
+    text:{
+        decoration: none;
+        }
     color: $red;
 }
 
 body{
-
-    background-color: $color-bg;
-    
+    background:{
+        color: $color-bg;
+    }
 }
 
 
