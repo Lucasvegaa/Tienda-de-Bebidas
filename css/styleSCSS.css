@@ -1,5 +1,14 @@
-a {
-  margin: 0ch;
-  border-radius: 0ch;
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+#logo {
+  text-decoration: none;
+  color: crimson;
+}
+
+body {
+  background-color: black;
 }
 /*# sourceMappingURL=styleSCSS.css.map */

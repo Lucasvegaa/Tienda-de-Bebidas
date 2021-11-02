@@ -1,4 +1,15 @@
-a{
-    margin: 0ch;
-    border-radius: 0ch;
+@import "reset";
+
+$black: black;
+$red: crimson;
+
+$primary: $black;
+$secondary: $red;
+
+#logo {
+    text-decoration: none;
+    color: $red;
+}
+body{
+    background-color: $black;
 }
