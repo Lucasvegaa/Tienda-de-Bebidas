@@ -1,15 +1,17 @@
-@import "reset";
+@import "./scss/reset";
+@import "./scss/variables";
 
-$black: black;
-$red: crimson;
 
-$primary: $black;
-$secondary: $red;
 
 #logo {
     text-decoration: none;
     color: $red;
 }
+
 body{
-    background-color: $black;
+
+    background-color: $color-bg;
+    
 }
+
+
