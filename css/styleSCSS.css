@@ -79,10 +79,10 @@ Pd: Se unificaran los Header pronto.
 /*--------main----------*/
 /*--------Aqui todavia no se aplicaron operaciones con SASS----------*/
 .main {
-  padding-left: 5rem;
-  padding-right: 5rem;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding-padding-left: 5rem;
+  padding-padding-right: 5rem;
+  padding-padding-top: 1rem;
+  padding-padding-bottom: 2rem;
   background-color: black;
 }
 
