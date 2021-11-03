@@ -15,7 +15,7 @@ Pd: Se unificaran los Header pronto.
 .header__contenedorLogo__titulo {
   color: crimson;
   text-transform: uppercase;
-  font-size: 4rem;
+  font-size: 0rem;
   margin-left: 5px;
   font-family: "Bebas Neue";
   padding: 0px;
@@ -78,12 +78,16 @@ Pd: Se unificaran los Header pronto.
 
 /*--------main----------*/
 /*--------Aqui todavia no se aplicaron operaciones con SASS----------*/
+body {
+  background-image: url(./img/bg-1.jpg);
+}
+
 .main {
   padding-padding-left: 5rem;
   padding-padding-right: 5rem;
   padding-padding-top: 1rem;
   padding-padding-bottom: 2rem;
-  background-color: black;
+  background-image: url(./img/bg-1.jpg);
 }
 
 .main__tituloPrincipal {
@@ -184,7 +188,7 @@ Pd: Se unificaran los Header pronto.
 }
 
 .main__contenedor2 {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.493);
   border: 3px solid #000;
   margin-top: 3rem;
   display: -webkit-box;
@@ -200,6 +204,8 @@ Pd: Se unificaran los Header pronto.
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   margin-bottom: 2rem;
+  width: 60%;
+  margin-left: 20%;
 }
 
 .main__contenedor2__img {
@@ -212,12 +218,84 @@ Pd: Se unificaran los Header pronto.
   font-weight: 600;
 }
 
+/*--Variables--*/
+/* ----------footer----------- */
+.footer {
+  background-color: black;
+  font-family: 'Inter', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .footer__contenedor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer .footer__contenedor .footer__contenedor__ul {
+  color: blanchedalmond;
+  margin: 1rem;
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
+
+.footer .footer__contenedor .footer__contenedor__logo {
+  color: blanchedalmond;
+  margin-top: 1rem;
+}
+
+.footer .footer__contenedor2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer .footer__contenedor2 .footer__contenedor2__redes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.footer .footer__contenedor2 .footer__contenedor2__redes .footer__contenedor2__redes__span .footer__contenedor2__redes__span__link {
+  color: blanchedalmond;
+  margin-right: 1rem;
+}
+
+.footer .footer__contenedor2 .footer__contenedor2__span {
+  color: blanchedalmond;
+}
+
+#lupaa {
+  color: blanchedalmond;
+}
+
 #logo {
   text-decoration: none;
   color: crimson;
 }
 
 body {
-  background-color: black;
+  background-image: url(../img/bg-1.jpg);
 }
 /*# sourceMappingURL=styleSCSS.css.map */

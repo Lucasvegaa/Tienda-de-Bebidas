@@ -2,6 +2,7 @@
 @import "./scss/variables2";
 @import "./scss/header";
 @import "./scss/body";
+@import "./scss/footer";
 
 
 #logo {
@@ -12,8 +13,7 @@
 }
 
 body{
-    background-color: blue;
-    background-image: url(./img/bg-1.jpg);
+    background-image: url(../img/bg-1.jpg);
 }
 
 
