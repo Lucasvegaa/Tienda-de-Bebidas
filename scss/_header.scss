@@ -11,10 +11,11 @@ Pd: Se unificaran los Header pronto.
 }
 .header{
     background-image: linear-gradient(to right, black,rgb(173, 172, 172));
+    
 }
 
 .header__contenedorLogo__titulo{
-    @include TextTranformAndSizes(crimson,uppercase,4rem,5px,'Bebas Neue');
+    @include TextTranformAndSizes(crimson,uppercase,0rem,5px,'Bebas Neue');
     
     padding: 0px;
     text-decoration: none;

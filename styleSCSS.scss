@@ -1,5 +1,5 @@
 @import "./scss/reset";
-@import "./scss/variables";
+@import "./scss/variables2";
 @import "./scss/header";
 @import "./scss/body";
 
@@ -12,9 +12,8 @@
 }
 
 body{
-    background: {
-        color: $color-bg;
-    }
+    background-color: blue;
+    background-image: url(./img/bg-1.jpg);
 }
 
 
