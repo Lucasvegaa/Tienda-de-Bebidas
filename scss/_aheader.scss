@@ -9,9 +9,8 @@ Pd: Se unificaran los Header pronto.
     margin-left: $ml;
     font-family: $familyFont;
 }
-.header{
-    background-image: linear-gradient(to right, black,rgb(173, 172, 172));
-    
+.header {
+    //background-color:rgba(255, 0, 0, 0.082);
 }
 
 .header__contenedorLogo__titulo{
@@ -46,7 +45,7 @@ Pd: Se unificaran los Header pronto.
 .header__nav__ul{
     text-transform: uppercase;
     text-decoration: none;
-    background-color:rgb(105, 103, 103);
+    //background-color:rgb(105, 103, 103);
     margin-left: 1rem;
 }
 
@@ -54,7 +53,7 @@ Pd: Se unificaran los Header pronto.
     background-color: rgb(128, 128, 128);
 }
 .header__nav{
-    background-color:rgb(105, 103, 103);
+    //background-color:rgb(105, 103, 103);
     display: flex;
     justify-content: space-between;
     align-items: center;

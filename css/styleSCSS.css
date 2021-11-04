@@ -7,11 +7,6 @@
 /* Este no es el header del Index.html , ya que ese tiene un header con boostrap.
 Pd: Se unificaran los Header pronto.
 */
-.header {
-  background-image: -webkit-gradient(linear, left top, right top, from(black), to(#adacac));
-  background-image: linear-gradient(to right, black, #adacac);
-}
-
 .header__contenedorLogo__titulo {
   color: crimson;
   text-transform: uppercase;
@@ -51,7 +46,6 @@ Pd: Se unificaran los Header pronto.
 .header__nav__ul {
   text-transform: uppercase;
   text-decoration: none;
-  background-color: #696767;
   margin-left: 1rem;
 }
 
@@ -60,7 +54,6 @@ Pd: Se unificaran los Header pronto.
 }
 
 .header__nav {
-  background-color: #696767;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -77,9 +70,9 @@ Pd: Se unificaran los Header pronto.
 }
 
 /*--------main----------*/
-/*--------Aqui todavia no se aplicaron operaciones con SASS----------*/
 body {
-  background-image: url(./img/bg-1.jpg);
+  background-image: url(/img/bg-2.jpg);
+  background-attachment: scroll;
 }
 
 .main {
@@ -87,17 +80,14 @@ body {
   padding-padding-right: 5rem;
   padding-padding-top: 1rem;
   padding-padding-bottom: 2rem;
-  background-image: url(./img/bg-1.jpg);
 }
 
 .main__tituloPrincipal {
   font-size: 6rem;
   color: crimson;
-  font-family: 'Inter', sans-serif;
   font-family: 'Teko', sans-serif;
   text-transform: uppercase;
   text-align: center;
-  font-weight: bold;
 }
 
 .main__contenedor, .main__contenedor2 {
@@ -147,7 +137,7 @@ body {
 }
 
 .main__contenedor__tarjeta {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.377);
   padding: 2rem;
   border: 1px solid #000;
   margin: 1rem;
@@ -293,9 +283,5 @@ body {
 #logo {
   text-decoration: none;
   color: crimson;
-}
-
-body {
-  background-image: url(../img/bg-1.jpg);
 }
 /*# sourceMappingURL=styleSCSS.css.map */

@@ -57,6 +57,7 @@
   @include font-size($navbar-brand-font-size);
   line-height: inherit;
   white-space: nowrap;
+  font-family: 'Teko', sans-serif;
 
   @include hover-focus() {
     text-decoration: none;
@@ -282,7 +283,8 @@
 // White links against a dark background
 .navbar-dark {
   .navbar-brand {
-    color: $navbar-dark-brand-color;
+    /*Editado , se le cambio la variable de color*/
+    color: $red;
 
     @include hover-focus() {
       color: $navbar-dark-brand-hover-color;

@@ -1,8 +1,8 @@
 @import "./scss/reset";
-@import "./scss/variables2";
-@import "./scss/header";
-@import "./scss/body";
-@import "./scss/footer";
+@import "./scss/avariables2";
+@import "./scss/aheader";
+@import "./scss/abody";
+@import "./scss/afooter";
 
 
 #logo {
@@ -12,8 +12,6 @@
     color: $red;
 }
 
-body{
-    background-image: url(../img/bg-1.jpg);
-}
+
 
 
