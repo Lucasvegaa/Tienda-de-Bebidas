@@ -71,7 +71,7 @@ Pd: Se unificaran los Header pronto.
 
 /*--------main----------*/
 body {
-  background-image: url(/img/bg-2.jpg);
+  background-image: url(../img/bg-2.jpg);
   background-attachment: scroll;
 }
 
@@ -157,14 +157,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 1rem;
-  -webkit-transition: all 500ms;
-  transition: all 500ms;
-}
-
-.main__contenedor__tarjeta:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  margin: 5rem;
 }
 
 .main__contenedor__tarjeta__tituloTarjeta {

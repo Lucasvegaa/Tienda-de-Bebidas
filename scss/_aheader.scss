@@ -9,9 +9,7 @@ Pd: Se unificaran los Header pronto.
     margin-left: $ml;
     font-family: $familyFont;
 }
-.header {
-    //background-color:rgba(255, 0, 0, 0.082);
-}
+
 
 .header__contenedorLogo__titulo{
     @include TextTranformAndSizes(crimson,uppercase,0rem,5px,'Bebas Neue');

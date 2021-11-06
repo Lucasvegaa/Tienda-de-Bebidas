@@ -2,7 +2,7 @@
 
 
 body{
-    background-image: url(/img/bg-2.jpg);
+    background-image: url(../img/bg-2.jpg);
     background-attachment:scroll;
 }
 
@@ -14,11 +14,7 @@ body{
         padding-bottom: 2rem;
     };        
 }
-// .navbar-dark .navbar-brand{
-//     font-size: 3rem;
-//     color: crimson;
-//     font-family: 'Teko', sans-serif;
-//     }
+
 
 .main__tituloPrincipal{
     font-size: 6rem;
@@ -59,11 +55,6 @@ body{
     justify-content: flex-end;
     align-items: center;
     border-radius: 1rem;
-    transition: all 500ms ;
-}
-.main__contenedor__tarjeta:hover{
-    transform: scale(1.2);
-    margin: 5rem; 
 }
 
 .main__contenedor__tarjeta__tituloTarjeta {
