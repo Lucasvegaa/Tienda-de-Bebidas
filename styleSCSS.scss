@@ -1,21 +1,24 @@
 @import "./scss/reset";
+<<<<<<< HEAD
 @import "./scss/variables";
 @import "./scss/header";
 @import "./scss/body";
 @import "./scss/footer";
+=======
+@import "./scss/avariables2";
+@import "./scss/aheader";
+@import "./scss/abody";
+@import "./scss/afooter";
+>>>>>>> tercero
 
 
 #logo {
-    text:{
+    text: {
         decoration: none;
         }
     color: $red;
 }
 
-body{
-    background:{
-        color: $color-bg;
-    }
-}
+
 
 
