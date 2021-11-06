@@ -1,7 +1,7 @@
 {
   "name": "ta",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web de Brooklin, una Tienda de Bebidad",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Lucasvegaa/BROOKLYN_TIENDA_DE_BEBIDAS.git"
   },
-  "author": "",
+  "author": "Vega, Lucas Damian",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Lucasvegaa/BROOKLYN_TIENDA_DE_BEBIDAS/issues"
