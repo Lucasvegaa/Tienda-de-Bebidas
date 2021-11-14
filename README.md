@@ -4,4 +4,4 @@
 ### Web de tienda de bebidas en general, cuenta con 5 secciones. Para desarrollarla se utilizo HTML, CSS, Bootstrap, SASS.
 
 [LinkedIn](https://www.linkedin.com/in/lucas-vega-39aa15195/)
-[GitHub] (https://github.com/Lucasvegaa)
+[GitHub](https://github.com/Lucasvegaa)
