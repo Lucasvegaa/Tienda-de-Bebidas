@@ -73,6 +73,7 @@ Pd: Se unificaran los Header pronto.
 body {
   background-image: url(../img/bg-2.jpg);
   background-attachment: scroll;
+  background-repeat: space repeat;
 }
 
 .main {
