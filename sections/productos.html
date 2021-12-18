@@ -45,17 +45,8 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="../sections/quienesSomos.html">Quienes Somos?</a>
                     </li>
-                    <li class="nav-item active dropdown">
-                        <a class="nav-link dropdown-toggle" href="../sections/productos.html" id="navbarDropdown"
-                            role="button" data-toggle="dropdown" aria-expanded="false">
-                            Productos
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../sections/vinos.html">Vinos</a>
-                            <a class="dropdown-item" href="../sections/cerveza.html">Cerveza</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../sections/productos.html">Accesorios</a>
-                        </div>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../sections/productos.html">Productos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../sections/locales.html">Locales</a>
@@ -81,102 +72,58 @@
                 <div class="col-sm-2">
                     <h4 class="h4 text-white">Filtros</h4>
                     <select id="filtroCategorias" class="custom-select">
-                        <option value="Todos" selected >Todos</option>
+                        <option value="Todos" selected>Todos</option>
                         <option value="Cerveza">Cerveza</option>
                         <option value="Fernet">Fernet</option>
                         <option value="Vino">Vino</option>
-                      </select>
+                    </select>
+                    <button id="btnCarrito" type="button" class="btn btn-secondary mt-5" data-toggle="modal" data-target="#exampleModal">
+                        Carrito <span id="contadorCarrito" class="badge badge-dark"></span>
+                    </button>
 
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#ID</th>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Categoria</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Eliminar</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody id="bodyCarrito">
+                                            <th></th>
+                                            <td colspan="2">Total</td>
+                                            <td id=></td>
+                                        </tbody>
+                                      </table>
+                                </div>
+                                <button id= "btnVaciarCarrito" type="button" class="btn btn-danger">Vaciar Carrito</button> 
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary">Finalizar Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="col-sm ">
                     <div class="container">
                         <div
                             class="row contenedorProductos row-cols-sm-2 row-cols-md-3 row-cols-lg-4 align-items-center  justify-content-sm-between">
-                            <!-- <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/pack12CervezasBudweiser710ml_Accesorios.png"
-                                    alt="bebida">
-                                <p>Pack 12 Cervezas Budweiser 710ml + Accesorios</p>
-                                <h4>$3.945 <span class="badge badge-secondary">-20%</span></h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/cervezaCorona.png" alt="bebida">
-                                <p>Pack 24 Cervezas Corona 710ml</p>
-                                <h4>$4.300 <span class="badge badge-secondary">-30%</span></h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/pack48CervezasStellaArtoisLata473ml.png"
-                                    alt="Stella Artois 473ml">
-                                <p>Pack 48 Cervezas Stella Artois Lager Lata 473ml </p>
-                                <h4>$4.620 <span class="badge badge-secondary">New</span></h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/cervezaPatagonia.png" alt="bebida">
-                                <p>Pack 24 Cervezas Patagonia 24.7 Lata 473ml</p>
-                                <h4>$300</h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/botellaLPQTP2020.png" alt="bebida">
-                                <p>Pack 6 Vinos Premium</p>
-                                <h4>$5.442 <span class="badge badge-secondary">New</span></h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/pack6Espumantes.png" alt="bebida">
-                                <p>Pack 6 Espumantes</p>
-                                <h4>$2.754</h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/PackConservadoraBrahma_12CervezasBrahmLata473ml.png"
-                                    alt="bebida">
-                                <p>Pack 12 Cervezas Brahma Lata 473ml + Conservadora</p>
-                                <h4>$3.852</h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/PackIsidrax24Latas473ml.png" alt="bebida">
-                                <p>Pack 24 Sidras Patagonia Isidra Lata 473ml</p>
-                                <h4>$4.385</h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/pack12CervezasBudweiser710ml_Accesorios.png"
-                                    alt="bebida">
-                                <p>Vodka Smirnoff 750cc</p>
-                                <h4>$300</h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/pack6Espumantes.png" alt="bebida">
-                                <p>Vodka Smirnoff 750cc</p>
-                                <h4>$300</h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img//PackConservadoraBrahma_12CervezasBrahmLata473ml.png"
-                                    alt="bebida">
-                                <p>Vodka Smirnoff 750cc</p>
-                                <h4>$300</h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/PackIsidrax24Latas473ml.png" alt="bebida">
-                                <p>Vodka Smirnoff 750cc</p>
-                                <h4>$300</h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div>
-                            <div class="col bg-dark text-white m-3 text-sm-center p-1">
-                                <img class="img-fluid" src="../img/pack12CervezasBudweiser710ml_Accesorios.png"
-                                    alt="bebida">
-                                <p>Vodka Smirnoff 750cc</p>
-                                <h4>$300</h4>
-                                <button type="button" class="btn btn-primary">Comprar</button>
-                            </div> -->
+                          
                         </div>
                     </div>
 

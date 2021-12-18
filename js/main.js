@@ -15,56 +15,44 @@ class Carrito {
         this.productos = productos;
     }
 
-    // agregarAlCarrito(carrito) {
-    //     let valorID = 0;
-    //     let total = 0;
-    //     let articulos = 0;
-    //     carrito.productos = [];
-
-    //     do {
-
-    //         valorID = parseInt(prompt("Ingrese el ID del producto que desea agregar: \n(lista de productos en consola) \n **Para salir ingrese 0 **\nCantidad Productos: " + articulos + " \nTOTAL: " + total));
-    //         if (valorID != 0) {
-    //             let producto = tienda.buscarProductoPorId(valorID);
-    //             if (producto != undefined) {
-    //                 this.productos.push(producto);
-    //                 total = carrito.TotalCarrito(this.productos);
-    //                 articulos++;
-    //             }
-    //             else {
-    //                 alert("ID no es valido")
-    //             }
-    //         }
-
-
-    //     } while (valorID != 0);
-    //     console.clear();
-    //     console.log("Su pedido es: ");
-    //     carrito.listarProductos(this.productos);
-    //     console.log("Usted cargo: " + articulos + " productos y el total va a pagar es de : $" + total);
-    // }
-
-    agregarAlCarrito(carrito, producto) {
-        //verificarLocalStorage(carrito);
-        carrito.productos.push(producto);
+    agregarAlCarrito(producto) {
+        this.productos.push(producto);
         localStorage.setItem('Carrito', JSON.stringify(this.productos));
+        let contadorCarrito = document.getElementById("contadorCarrito");
+        contadorCarrito.innerHTML = this.productos.length;
     }
 
-    TotalCarrito(productos) {
+    totalCarrito() {
         let total = 0;
-        for (const producto of productos) {
+        for (const producto of this.productos) {
             total = total + producto.precio;
         }
-        return total;
+        let bodyCarrito = document.getElementById("bodyCarrito")
+        let contenedor = document.createElement("tr");
+        contenedor.innerHTML = `
+                                    <th scope="row"></th>
+                                    <td colspan=3>Total:</td>
+                                    <td>$${total}</td>
+                                    `;
+        bodyCarrito.appendChild(contenedor);
     }
 
-
-    listarProductos(productos) {
-        for (const producto of productos) {
-            console.log("ID: %d - Marca: %s - Categoria: %s - Precio: %f", producto.idProducto, producto.marcaProducto, producto.categoria, producto.precio);
+    listarProductos() {
+        let bodyCarrito = document.getElementById("bodyCarrito")
+        bodyCarrito.innerHTML = "";
+        for (const producto of this.productos) {
+            let contenedor = document.createElement("tr");
+            contenedor.innerHTML = `
+                                    <th scope="row">${producto.idProducto}</th>
+                                    <td>${producto.nombreProducto}</td>
+                                    <td>${producto.categoria}</td>
+                                    <td>$${producto.precio}</td>
+                                    <td class="btnEliminarProducto"><button type="button" class="btn btn-danger btn-sm p-2">X</button></td>
+                                    `;
+            bodyCarrito.appendChild(contenedor);
         };
+        this.totalCarrito()
     }
-
 }
 class Tienda {
     constructor(nombre, direccion, telefono, baseDeDatos) {
@@ -73,11 +61,12 @@ class Tienda {
         this.telefono = telefono;
         this.baseDeDatos = baseDeDatos;
     }
-    filtrarProductoPorCategoria(valor) {
+    filtrarProductoPorCategoria(valor, carrito) {
         let espacioProductos = document.getElementsByClassName("contenedorProductos")
         espacioProductos[0].innerHTML = "";
         const encontrado = this.baseDeDatos.filter(producto => producto.categoria == valor);
         this.listarProductos(encontrado);
+        eventosBotones(carrito);
     };
 
     buscarProductoPorId(valorId) {
@@ -85,7 +74,7 @@ class Tienda {
         return encontrado;
     };
 
-    listarProductos(baseDeDatos) {
+    listarProductos(baseDeDatos, carrito) {
         let espacioProductos = document.getElementsByClassName("contenedorProductos")
         espacioProductos[0].innerHTML = "";
         for (const producto of baseDeDatos) {
@@ -98,53 +87,90 @@ class Tienda {
                                     <button id="${producto.idProducto}" type="button" class="btn btn-primary btnComprar">Comprar</button>                                
                                 `;
             espacioProductos[0].appendChild(contenedor);
+            eventosBotones(carrito);
         }
     }
 }
 
 const baseDeDatos = [
-    { idProducto: 1, nombreProducto: "Pack 12 Cervezas Budweiser 710ml + Accesorios", marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img: "pack12CervezasBudweiser710ml_Accesorios.png" },
-    { idProducto: 2, nombreProducto: "Pack 24 Cervezas Corona 710ml", marcaProducto: 'Corona', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img: "cervezaCorona.png" },
-    { idProducto: 2, nombreProducto: "Pack 24 Cervezas Corona 710ml", marcaProducto: 'Corona', categoria: 'Vino', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img: "cervezaCorona.png" },
+    { idProducto: 1, nombreProducto: "Pack 12 Cervezas Budweiser 710ml + Accesorios", marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 3945, img: "pack12CervezasBudweiser710ml_Accesorios.png" },
+    { idProducto: 2, nombreProducto: "Pack 24 Cervezas Corona 710ml", marcaProducto: 'Corona', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 4300, img: "cervezaCorona.png" },
+    { idProducto: 3, nombreProducto: "Pack 48 Cervezas Stella Artois Lager Lata 473ml", marcaProducto: 'Stella Artois', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 4620, img: "pack48CervezasStellaArtoisLata473ml.png" },
+    { idProducto: 4, nombreProducto: "Pack 6 Espumantes", marcaProducto: 'Varios', categoria: 'Vino', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 2754, img: "pack6Espumantes.png" },
+    { idProducto: 5, nombreProducto: "Pack 6 Vinos Premium", marcaProducto: 'Varios', categoria: 'Vino', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 5442, img: "botellaLPQTP2020.png" },
+    { idProducto: 6, nombreProducto: "Pack 24 Cervezas Patagonia 24.7 Lata 473ml", marcaProducto: 'Patagonia', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 300, img: "cervezaPatagonia.png" },
+    { idProducto: 7, nombreProducto: "Pack 12 Cervezas Brahma Lata 473ml + Conservadora", marcaProducto: 'Brahma', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 3852, img: "PackConservadoraBrahma_12CervezasBrahmLata473ml.png" },
 ];
 
 const tienda = new Tienda('Brooklyn', 'Avellaneda 334', 4885548, baseDeDatos);
 
 function programa() {
     const carrito = new Carrito([]);
-    verificarLocalStorage(carrito);
+    
     tienda.listarProductos(tienda.baseDeDatos);
     btnComprarOnClic(carrito);
-    selectFiltroOnChange();
+    verificarLocalStorage(carrito);
+    eventosBotones(carrito);
+
 }
 
 function btnComprarOnClic(carrito) {
     let botones = document.getElementsByClassName('btnComprar');
     for (const boton of botones) {
-        boton.addEventListener('click', function () {
-            let producto = tienda.buscarProductoPorId(this.id);
-            carrito.agregarAlCarrito(carrito, producto);
-        })
+        boton.onclick = function(){
+            let producto = tienda.buscarProductoPorId(boton.id);
+            carrito.agregarAlCarrito(producto);
+        }
     }
 }
 
-function selectFiltroOnChange() {
+function selectFiltroOnChange(carrito) {
     let filtroProductos = document.getElementById('filtroCategorias')
     filtroProductos.addEventListener('change', function () {
         if (this.value != "Todos") {
-            console.log(this.value)
-            tienda.filtrarProductoPorCategoria(this.value);
+            tienda.filtrarProductoPorCategoria(this.value, carrito);
         } else {
-            tienda.listarProductos(tienda.baseDeDatos);
+            tienda.listarProductos(tienda.baseDeDatos, carrito);
         }
     })
 }
 
 function verificarLocalStorage(carrito) {
+
     if ('Carrito' in localStorage) {
-        const arrayT = JSON.parse(localStorage.getItem("Carrito"));
-        for (const producto of arrayT) {
+        const productosStorage = JSON.parse(localStorage.getItem("Carrito"));
+        for (const producto of productosStorage) {
             carrito.productos.push(producto);
         }
+
+    } else {
+        carrito.productos = [];
     }
+    let contadorCarrito = document.getElementById("contadorCarrito");
+    contadorCarrito.innerHTML = carrito.productos.length;
+}
+function carritoOnClick(carrito) {
+    let btnCarrito = document.getElementById('btnCarrito')
+    btnCarrito.onclick = function () {
+        carrito.listarProductos(carrito)
+    }
+}
+
+function VaciarCarritoOnClick(carrito) {
+    let btnVaciar = document.getElementById('btnVaciarCarrito')
+    btnVaciar.onclick = function () {
+        localStorage.clear();
+        //verificarLocalStorage(carrito);
+        carrito.productos = [];
+        let contadorCarrito = document.getElementById("contadorCarrito");
+        contadorCarrito.innerHTML = 0;
+        carrito.listarProductos();
+    }
+}
+
+function eventosBotones(carrito) {
+    btnComprarOnClic(carrito);
+    selectFiltroOnChange(carrito);
+    carritoOnClick(carrito);
+    VaciarCarritoOnClick(carrito);
 }
