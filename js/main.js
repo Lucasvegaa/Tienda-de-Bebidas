@@ -1,10 +1,12 @@
 class Producto {
-    constructor(idProducto, marcaProducto, categoria, descripcionProducto, precio) {
+    constructor(idProducto, nombreProducto, marcaProducto, categoria, descripcionProducto, precio, img) {
         this.idProducto = idProducto;
+        this.nombreProducto = nombreProducto;
         this.marcaProducto = marcaProducto;
         this.categoria = categoria;
         this.descripcionProducto = descripcionProducto;
         this.precio = precio
+        this.img = img;
     }
 }
 
@@ -81,71 +83,50 @@ class Tienda {
         return encontrado;
     };
 
-    listarProductos(productos) {
-        for (const producto of productos) {
-            console.log("ID: %d - Marca: %s - Categoria: %s - Precio: %f", producto.idProducto, producto.marcaProducto, producto.categoria, producto.precio);
-        };
+    listarProductos(espacioProductos) {
+        for (const producto of this.baseDeDatos) {
+            let contenedor = document.createElement("div");
+            contenedor.className = "col bg-dark text-white m-3 text-sm-center p-1";
+            contenedor.innerHTML = `
+                                    <img class="img-fluid" src="../img/${producto.img}" alt="bebida">
+                                    <p> ${producto.nombreProducto}</p>
+                                    <h4> $${producto.precio} </h4>
+                                    <button type="button" class="btn btn-primary">Comprar</button>                                
+                                `;
+            espacioProductos[0].appendChild(contenedor);
+        }
     }
 }
 
 const baseDeDatos = [
-    { idProducto: 1, marcaProducto: 'Quilmes', categoria: 'Cerveza', descripcionProducto: 'lorem', precio: 100 },
-    { idProducto: 2, marcaProducto: 'Ruttini', categoria: 'Vino', descripcionProducto: '1500s, when an unknown printer took a galley of type and scrambled it to ma', precio: 5000 },
-    { idProducto: 3, marcaProducto: 'Jack Daniels', categoria: 'Whiskey', descripcionProducto: '1500s, when an unknown printer took a galley of type and scrambled it to ma', precio: 4500 },
-    { idProducto: 4, marcaProducto: 'Heineken', categoria: 'Cerveza', descripcionProducto: ' like readable English. Many deskto', precio: 150 },
-    { idProducto: 5, marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 140 },
-    { idProducto: 6, marcaProducto: 'Los Primos', categoria: 'Vino', descripcionProducto: ' specimen book. It has', precio: 500 },
-    { idProducto: 7, marcaProducto: 'Branca', categoria: 'Fernet', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750 },
+    // { idProducto: 1, marcaProducto: 'Quilmes', categoria: 'Cerveza', descripcionProducto: 'lorem', precio: 100 },
+    // { idProducto: 2, marcaProducto: 'Ruttini', categoria: 'Vino', descripcionProducto: '1500s, when an unknown printer took a galley of type and scrambled it to ma', precio: 5000 },
+    // { idProducto: 3, marcaProducto: 'Jack Daniels', categoria: 'Whiskey', descripcionProducto: '1500s, when an unknown printer took a galley of type and scrambled it to ma', precio: 4500 },
+    // { idProducto: 4, marcaProducto: 'Heineken', categoria: 'Cerveza', descripcionProducto: ' like readable English. Many deskto', precio: 150 },
+    // { idProducto: 5, marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 140 },
+    // { idProducto: 6, marcaProducto: 'Los Primos', categoria: 'Vino', descripcionProducto: ' specimen book. It has', precio: 500 },
+    // { idProducto: 7, marcaProducto: 'Branca', categoria: 'Fernet', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750 },
+    { idProducto: 1, nombreProducto:"Pack 12 Cervezas Budweiser 710ml + Accesorios",marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"pack12CervezasBudweiser710ml_Accesorios.png" },
+    { idProducto: 2, nombreProducto:"Pack 24 Cervezas Corona 710ml",marcaProducto: 'Corona', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"cervezaCorona.png" },
+    { idProducto: 1, nombreProducto:"Pack 12 Cervezas Budweiser 710ml + Accesorios",marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"pack12CervezasBudweiser710ml_Accesorios.png" },
+    { idProducto: 2, nombreProducto:"Pack 24 Cervezas Corona 710ml",marcaProducto: 'Corona', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"cervezaCorona.png" },
+    { idProducto: 1, nombreProducto:"Pack 12 Cervezas Budweiser 710ml + Accesorios",marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"pack12CervezasBudweiser710ml_Accesorios.png" },
+    { idProducto: 2, nombreProducto:"Pack 24 Cervezas Corona 710ml",marcaProducto: 'Corona', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"cervezaCorona.png" },
+    { idProducto: 1, nombreProducto:"Pack 12 Cervezas Budweiser 710ml + Accesorios",marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"pack12CervezasBudweiser710ml_Accesorios.png" },
+    { idProducto: 2, nombreProducto:"Pack 24 Cervezas Corona 710ml",marcaProducto: 'Corona', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"cervezaCorona.png" },
+    { idProducto: 1, nombreProducto:"Pack 12 Cervezas Budweiser 710ml + Accesorios",marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"pack12CervezasBudweiser710ml_Accesorios.png" },
+    { idProducto: 2, nombreProducto:"Pack 24 Cervezas Corona 710ml",marcaProducto: 'Corona', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"cervezaCorona.png" },
+    { idProducto: 1, nombreProducto:"Pack 12 Cervezas Budweiser 710ml + Accesorios",marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"pack12CervezasBudweiser710ml_Accesorios.png" },
+    { idProducto: 2, nombreProducto:"Pack 24 Cervezas Corona 710ml",marcaProducto: 'Corona', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"cervezaCorona.png" },
+    { idProducto: 1, nombreProducto:"Pack 12 Cervezas Budweiser 710ml + Accesorios",marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"pack12CervezasBudweiser710ml_Accesorios.png" },
+    { idProducto: 2, nombreProducto:"Pack 24 Cervezas Corona 710ml",marcaProducto: 'Corona', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 750, img:"cervezaCorona.png" },
+    
 ];
 
 const tienda = new Tienda('Brooklyn', 'Avellaneda 334', 4885548, baseDeDatos);
 
 function programa() {
     const carrito = new Carrito([]);
-    alert("Bienvenido al Simulador de Carrito de compras.");
-
-    let valor = 0;
-    while (valor != 4) {
-        valor = parseInt(prompt("MENU: \n 1- Cargar productos al carrito \n 2- Buscar por Categoria \n 3- Buscar por ID de producto \n 4- Salir "));
-        switch (valor) {
-            case 1:
-                console.clear();
-                tienda.listarProductos(tienda.baseDeDatos);
-                carrito.agregarAlCarrito(carrito);
-                break;
-
-            case 2:
-                console.clear();
-                tienda.listarProductos(tienda.baseDeDatos);
-                let categoria = prompt("Que Categoria de productos quiere buscar?:");
-                console.clear();
-                tienda.filtrarProductoPorCategoria(categoria);
-                // if (filtrado != []) {
-                //     for (const producto of filtrado) {
-                //         console.log("ID: %d - Marca: %s - Categoria: %s - Precio: %f", producto.idProducto, producto.marcaProducto, producto.categoria, producto.precio);
-                //     }
-                // } else {
-                //     console.log("No se encontro productos de la categoria %s.", categoria)
-                // }
-                break;
-
-            case 3:
-                let valorID = parseInt(prompt("Ingrese ID del producto?"));
-                let encontrado = tienda.buscarProductoPorId(valorID)
-                if (encontrado != undefined) {
-                    console.log("El producto es: \n ID: %d - Marca: %s - Categoria: %s - Precio: %f - Descripcion: %s\n", encontrado.idProducto, encontrado.marcaProducto, encontrado.categoria, encontrado.precio, encontrado.descripcionProducto)
-                } else {
-                    console.log("No se encontro producto con el ID %d.", valorID)
-                }
-                break;
-
-            case 4:
-
-                break;
-
-            default:
-
-                break;
-        }
-    }
+    let espacioProductos = document.getElementsByClassName("contenedorProductos")
+    tienda.listarProductos(espacioProductos);
 }
