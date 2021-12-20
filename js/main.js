@@ -66,8 +66,6 @@ class Tienda {
         espacioProductos[0].innerHTML = "";
         const encontrado = this.baseDeDatos.filter(producto => producto.categoria == valor);
         this.listarProductos(encontrado, carrito);
-        //eventosBotones(carrito);
-        //btnComprarOnClic(carrito);
     };
 
     buscarProductoPorId(valorId) {
@@ -88,7 +86,6 @@ class Tienda {
                                     <button id="${producto.idProducto}" type="button" class="btn btn-primary btnComprar">Comprar</button>                                
                                 `;
             espacioProductos[0].appendChild(contenedor);
-            //eventosBotones(carrito);
             btnComprarOnClic(carrito);
         }
     }
@@ -108,7 +105,7 @@ const tienda = new Tienda('Brooklyn', 'Avellaneda 334', 4885548, baseDeDatos);
 
 function programa() {
     const carrito = new Carrito([]);
-    
+
     tienda.listarProductos(tienda.baseDeDatos);
     btnComprarOnClic(carrito);
     verificarLocalStorage(carrito);
@@ -119,7 +116,7 @@ function programa() {
 function btnComprarOnClic(carrito) {
     let botones = document.getElementsByClassName('btnComprar');
     for (const boton of botones) {
-        boton.onclick = function(){
+        boton.onclick = function () {
             let producto = tienda.buscarProductoPorId(boton.id);
             carrito.agregarAlCarrito(producto);
         }
@@ -162,7 +159,6 @@ function VaciarCarritoOnClick(carrito) {
     let btnVaciar = document.getElementById('btnVaciarCarrito')
     btnVaciar.onclick = function () {
         localStorage.clear();
-        //verificarLocalStorage(carrito);
         carrito.productos = [];
         let contadorCarrito = document.getElementById("contadorCarrito");
         contadorCarrito.innerHTML = 0;
@@ -171,7 +167,6 @@ function VaciarCarritoOnClick(carrito) {
 }
 
 function eventosBotones(carrito) {
-    
     selectFiltroOnChange(carrito);
     carritoOnClick(carrito);
     VaciarCarritoOnClick(carrito);
