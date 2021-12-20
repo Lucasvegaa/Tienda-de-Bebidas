@@ -65,8 +65,9 @@ class Tienda {
         let espacioProductos = document.getElementsByClassName("contenedorProductos")
         espacioProductos[0].innerHTML = "";
         const encontrado = this.baseDeDatos.filter(producto => producto.categoria == valor);
-        this.listarProductos(encontrado);
-        eventosBotones(carrito);
+        this.listarProductos(encontrado, carrito);
+        //eventosBotones(carrito);
+        //btnComprarOnClic(carrito);
     };
 
     buscarProductoPorId(valorId) {
@@ -87,7 +88,8 @@ class Tienda {
                                     <button id="${producto.idProducto}" type="button" class="btn btn-primary btnComprar">Comprar</button>                                
                                 `;
             espacioProductos[0].appendChild(contenedor);
-            eventosBotones(carrito);
+            //eventosBotones(carrito);
+            btnComprarOnClic(carrito);
         }
     }
 }
@@ -169,7 +171,7 @@ function VaciarCarritoOnClick(carrito) {
 }
 
 function eventosBotones(carrito) {
-    btnComprarOnClic(carrito);
+    
     selectFiltroOnChange(carrito);
     carritoOnClick(carrito);
     VaciarCarritoOnClick(carrito);
