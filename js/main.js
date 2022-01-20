@@ -1,11 +1,11 @@
-const baseDeDatos = [];
-baseDeDatos.push(new Producto(1, "Pack 12 Cervezas Budweiser 710ml + Accesorios", "Budweiser", "Cerveza", "Lorem Ipsum is simply dummy text of the ", 3945, "pack12CervezasBudweiser710ml_Accesorios.png"))
-baseDeDatos.push(new Producto(2, "Pack 24 Cervezas Corona 710ml", "Corona", "Cerveza", "Lorem Ipsum is simply dummy text of the ", 4300, "cervezaCorona.png"))
-baseDeDatos.push(new Producto(3, "Pack 48 Cervezas Stella Artois Lager Lata 473ml", "Stella Artois", "Cerveza", "Lorem Ipsum is simply dummy text of the ", 4620, "pack48CervezasStellaArtoisLata473ml.png"))
-baseDeDatos.push(new Producto(4, "Pack 6 Espumantes", "Varios", "Vino", "Lorem Ipsum is simply dummy text of the ", 2754, "pack6Espumantes.png"))
-baseDeDatos.push(new Producto(5, "Pack 6 Vinos Premium", "Varios", "Vino", "Lorem Ipsum is simply dummy text of the ", 5442, "botellaLPQTP2020.png"))
-baseDeDatos.push(new Producto(6, "Pack 24 Cervezas Patagonia 24.7 Lata 473ml", "Patagonia", "Cerveza", "Lorem Ipsum is simply dummy text of the ", 300, "cervezaPatagonia.png"))
-baseDeDatos.push(new Producto(7, "Pack 12 Cervezas Brahma Lata 473ml + Conservadora", "Brahma", "Cerveza", "Lorem Ipsum is simply dummy text of the ", 3852, "PackConservadoraBrahma_12CervezasBrahmLata473ml.png"))
+
+// baseDeDatos.push(new Producto(1, "Pack 12 Cervezas Budweiser 710ml + Accesorios", "Budweiser", "Cerveza", "Lorem Ipsum is simply dummy text of the ", 3945, "pack12CervezasBudweiser710ml_Accesorios.png"))
+// baseDeDatos.push(new Producto(2, "Pack 24 Cervezas Corona 710ml", "Corona", "Cerveza", "Lorem Ipsum is simply dummy text of the ", 4300, "cervezaCorona.png"))
+// baseDeDatos.push(new Producto(3, "Pack 48 Cervezas Stella Artois Lager Lata 473ml", "Stella Artois", "Cerveza", "Lorem Ipsum is simply dummy text of the ", 4620, "pack48CervezasStellaArtoisLata473ml.png"))
+// baseDeDatos.push(new Producto(4, "Pack 6 Espumantes", "Varios", "Vino", "Lorem Ipsum is simply dummy text of the ", 2754, "pack6Espumantes.png"))
+// baseDeDatos.push(new Producto(5, "Pack 6 Vinos Premium", "Varios", "Vino", "Lorem Ipsum is simply dummy text of the ", 5442, "botellaLPQTP2020.png"))
+// baseDeDatos.push(new Producto(6, "Pack 24 Cervezas Patagonia 24.7 Lata 473ml", "Patagonia", "Cerveza", "Lorem Ipsum is simply dummy text of the ", 300, "cervezaPatagonia.png"))
+// baseDeDatos.push(new Producto(7, "Pack 12 Cervezas Brahma Lata 473ml + Conservadora", "Brahma", "Cerveza", "Lorem Ipsum is simply dummy text of the ", 3852, "PackConservadoraBrahma_12CervezasBrahmLata473ml.png"))
 
 
 // { idProducto: 1, nombreProducto: "Pack 12 Cervezas Budweiser 710ml + Accesorios", marcaProducto: 'Budweiser', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 3945, img: "pack12CervezasBudweiser710ml_Accesorios.png" },
@@ -109,3 +109,4 @@ function enviarEmail(e) {
         }
     });
 }
+
