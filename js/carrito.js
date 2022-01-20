@@ -44,7 +44,7 @@ class Carrito {
                                     <td>${producto.categoria}</td>
                                     <td>$${producto.precio}</td>
                                     <td><button id="${producto.idProducto}" type="button" class="btnSub btn btn-danger btn-sm p-2">-</button> ${producto.cantidad} <button id="${producto.idProducto}" type="button" class="btnAdd btn btn-danger btn-sm p-2">+</button></td>
-                                    <td>${producto.precio*producto.cantidad}</td>
+                                    <td>${producto.precio * producto.cantidad}</td>
                                     <td class="btnEliminarProducto"><button id="${producto.idProducto}" type="button" class="btnDelete btn btn-danger btn-sm p-2">X</button></td>
                                     `;
             bodyCarrito.appendChild(contenedor);
@@ -61,10 +61,10 @@ function eliminarDelCarrito(e) {
     let posicion = carrito.productos.findIndex(producto => producto.idProducto == e.target.id);
     carrito.productos[posicion].vaciarCantidad()
     carrito.productos.splice(posicion, 1)
-    contadorCarrito.innerHTML = contadorCarritos();
+    $('#contadirCarrito').innerHTML = contadorCarritos();
     carrito.listarProductos()
     localStorage.setItem('Carrito', JSON.stringify(carrito.productos));
-    
+
 }
 
 function btnEliminar() {
@@ -91,19 +91,19 @@ function restarCantidad() {
         addcontadorCarrito(-1)
     }
     carrito.listarProductos()
-    
+
     localStorage.setItem('Carrito', JSON.stringify(carrito.productos));
 }
 
-function contadorCarritos(){
-     let total = 0; 
+function contadorCarritos() {
+    let total = 0;
     for (const producto of carrito.productos) {
-            total += producto.cantidad
+        total += producto.cantidad
     }
     return total
 };
 
-function addcontadorCarrito(valor){
+function addcontadorCarrito(valor) {
     let total = parseInt(contadorCarrito.innerHTML)
     contadorCarrito.innerHTML = total + valor;
 };
