@@ -4,9 +4,18 @@ class Carrito {
     }
 
     agregarAlCarrito(producto) {
-        this.productos.push(producto);
+        console.log(producto);
+        const idProducto = producto.idProducto;
+        const existe =  this.productos.find(producto=>producto.idProducto==idProducto)
+        if(existe == undefined){
+            this.productos.push(producto);
+            }else{
+            producto.agregarCantidad(1);
+            }
         localStorage.setItem('Carrito', JSON.stringify(this.productos));
         let contadorCarrito = document.getElementById("contadorCarrito");
+        
+        //estoy hay q cambiar--abajo
         contadorCarrito.innerHTML = this.productos.length;
     }
 
@@ -35,6 +44,7 @@ class Carrito {
                                     <td>${producto.nombreProducto}</td>
                                     <td>${producto.categoria}</td>
                                     <td>$${producto.precio}</td>
+                                    <td><button type="button" class="btn btn-danger btn-sm p-2">-</button> ${producto.cantidad} <button type="button" class="btn btn-danger btn-sm p-2">+</button></td>
                                     <td class="btnEliminarProducto"><button type="button" class="btn btn-danger btn-sm p-2">X</button></td>
                                     `;
             bodyCarrito.appendChild(contenedor);

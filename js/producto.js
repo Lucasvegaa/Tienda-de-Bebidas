@@ -15,4 +15,10 @@ class Producto {
     subTotal(){
         return this.cantidad * this.precio;
     }
+    vaciarCantidad(){
+        this.cantidad = 1;
+    }
+    modificarCantidad(valor){
+        this.cantidad = valor
+    }
 }
