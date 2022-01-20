@@ -61,7 +61,7 @@ function verificarLocalStorage(carrito) {
         carrito.productos = [];
     }
     let contadorCarrito = document.getElementById("contadorCarrito");
-    contadorCarrito.innerHTML = carrito.productos.length;
+    contadorCarrito.innerHTML = contadorCarritos();
 }
 function carritoOnClick(carrito) {
     let btnCarrito = document.getElementById('btnCarrito')
