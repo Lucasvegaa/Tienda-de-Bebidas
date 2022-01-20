@@ -16,7 +16,7 @@ baseDeDatos.push(new Producto( 7, "Pack 12 Cervezas Brahma Lata 473ml + Conserva
     // { idProducto: 6, nombreProducto: "Pack 24 Cervezas Patagonia 24.7 Lata 473ml", marcaProducto: 'Patagonia', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 300, img: "cervezaPatagonia.png" },
     // { idProducto: 7, nombreProducto: "Pack 12 Cervezas Brahma Lata 473ml + Conservadora", marcaProducto: 'Brahma', categoria: 'Cerveza', descripcionProducto: 'Lorem Ipsum is simply dummy text of the ', precio: 3852, img: "PackConservadoraBrahma_12CervezasBrahmLata473ml.png" },
 
-console.log(baseDeDatos);
+
 const tienda = new Tienda('Brooklyn', 'Avellaneda 334', 4885548, baseDeDatos);
 const carrito = new Carrito([]);
 tienda.listarProductos(tienda.baseDeDatos);
@@ -56,9 +56,7 @@ function verificarLocalStorage(carrito) {
             const found = baseDeDatos.find(p=>p.idProducto == producto.idProducto)
             found.modificarCantidad(producto.cantidad)
             carrito.productos.push(found);
-            
-            //carrito.productos.push(new Producto(producto.idProducto, producto.nombreProducto,producto.marcaProducto,producto.categoria,producto.descripcionProducto,producto.precio,producto.img,producto.cantidad));
-        }
+       }
     } else {
         carrito.productos = [];
     }
@@ -93,3 +91,4 @@ function eventosBotones(carrito) {
     carritoOnClick(carrito);
     VaciarCarritoOnClick(carrito);
 }
+

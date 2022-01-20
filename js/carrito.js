@@ -4,17 +4,16 @@ class Carrito {
     }
 
     agregarAlCarrito(producto) {
-        console.log(producto);
         const idProducto = producto.idProducto;
-        const existe =  this.productos.find(producto=>producto.idProducto==idProducto)
-        if(existe == undefined){
+        const existe = this.productos.find(producto => producto.idProducto == idProducto)
+        if (existe == undefined) {
             this.productos.push(producto);
-            }else{
+        } else {
             producto.agregarCantidad(1);
-            }
+        }
         localStorage.setItem('Carrito', JSON.stringify(this.productos));
         let contadorCarrito = document.getElementById("contadorCarrito");
-        
+
         //estoy hay q cambiar--abajo
         contadorCarrito.innerHTML = this.productos.length;
     }
@@ -22,7 +21,7 @@ class Carrito {
     totalCarrito() {
         let total = 0;
         for (const producto of this.productos) {
-            total = total + producto.precio;
+            total = total + (producto.precio * producto.cantidad);
         }
         let bodyCarrito = document.getElementById("bodyCarrito")
         let contenedor = document.createElement("tr");
@@ -44,11 +43,47 @@ class Carrito {
                                     <td>${producto.nombreProducto}</td>
                                     <td>${producto.categoria}</td>
                                     <td>$${producto.precio}</td>
-                                    <td><button type="button" class="btn btn-danger btn-sm p-2">-</button> ${producto.cantidad} <button type="button" class="btn btn-danger btn-sm p-2">+</button></td>
-                                    <td class="btnEliminarProducto"><button type="button" class="btn btn-danger btn-sm p-2">X</button></td>
+                                    <td><button id="${producto.idProducto}" type="button" class="btnSub btn btn-danger btn-sm p-2">-</button> ${producto.cantidad} <button id="${producto.idProducto}" type="button" class="btnAdd btn btn-danger btn-sm p-2">+</button></td>
+                                    <td class="btnEliminarProducto"><button id="${producto.idProducto}" type="button" class="btnDelete btn btn-danger btn-sm p-2">X</button></td>
                                     `;
             bodyCarrito.appendChild(contenedor);
         };
-        this.totalCarrito()
+        this.totalCarrito();
+        btnEliminar();
+        btnAdd();
+        btnSub();
     }
+}
+
+function eliminarDelCarrito(e) {
+    let posicion = carrito.productos.findIndex(producto => producto.idProducto == e.target.id);
+    carrito.productos[posicion].vaciarCantidad()
+    carrito.productos.splice(posicion, 1)
+    carrito.listarProductos()
+    localStorage.setItem('Carrito', JSON.stringify(carrito.productos));
+}
+
+function btnEliminar() {
+    $(".btnDelete ").on("click", eliminarDelCarrito)
+}
+function btnAdd() {
+    $(".btnAdd ").on("click", addCantidad)
+}
+function addCantidad() {
+    let producto = carrito.productos.find(p => p.idProducto == this.id)
+    producto.agregarCantidad(1);
+    carrito.listarProductos()
+    localStorage.setItem('Carrito', JSON.stringify(carrito.productos));
+}
+function btnSub() {
+    $(".btnSub ").on("click", restarCantidad)
+}
+
+function restarCantidad() {
+    let producto = carrito.productos.find(p => p.idProducto == this.id)
+    if (producto.cantidad > 1) {
+        producto.agregarCantidad(-1);
+    }
+    carrito.listarProductos()
+    localStorage.setItem('Carrito', JSON.stringify(carrito.productos));
 }
