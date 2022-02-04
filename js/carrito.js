@@ -13,8 +13,6 @@ class Carrito {
         }
         localStorage.setItem('Carrito', JSON.stringify(this.productos));
         let contadorCarrito = document.getElementById("contadorCarrito");
-
-        //estoy hay q cambiar--abajo
         contadorCarrito.innerHTML = contadorCarritos();
     }
 
@@ -64,7 +62,6 @@ function eliminarDelCarrito(e) {
     $('#contadirCarrito').innerHTML = contadorCarritos();
     carrito.listarProductos()
     localStorage.setItem('Carrito', JSON.stringify(carrito.productos));
-
 }
 
 function btnEliminar() {
